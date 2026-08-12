@@ -1,12 +1,15 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { TabelaChamados } from './components/tabela-chamados/tabela-chamados';
+import { NovoChamado } from './components/novo-chamado/novo-chamado';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [MatToolbarModule, TabelaChamados, NovoChamado],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('crm-chamados');
+  protected title = 'CRM de Chamados';
 }

@@ -1,0 +1,40 @@
+<mat-card class="form-card">
+  <h2>Novo Chamado</h2>
+
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="nome" placeholder="Nome do cliente" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="email" placeholder="email@exemplo.com" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Tipo</mat-label>
+    <mat-select [(ngModel)]="tipo">
+      @for (t of tipos; track t) {
+        <mat-option [value]="t">{{ t }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput [(ngModel)]="descricao" rows="3"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campo">
+    <mat-label>Prioridade</mat-label>
+    <mat-select [(ngModel)]="prioridade">
+      @for (p of prioridades; track p) {
+        <mat-option [value]="p">
+          {{ p === 'critico' ? 'Crítico' : p === 'atencao' ? 'Atenção' : 'Sugestão' }}
+        </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="salvar()">Abrir Chamado</button>
+</mat-card>
